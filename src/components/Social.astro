@@ -1,0 +1,32 @@
+---
+import SocialBlock from "../components/Socialblock.astro";
+const links = [
+  {
+    icon: "/github.svg",
+    text: "Github",
+    link: "https://github.com/parthivsaikia",
+  },
+  {
+    icon: "/x.svg",
+    text: "Twitter",
+    link: "https://x.com/_saikiaparthiv_",
+  },
+  {
+    icon: "/email.svg",
+    text: "Email",
+    link: "mailto:hi@parthiv.me",
+  },
+];
+---
+
+<div>
+  <ul class="flex items-center justify-left gap-8">
+    {
+      links.map((l) => (
+        <li>
+          <SocialBlock icon={l.icon} text={l.text} link={l.link} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

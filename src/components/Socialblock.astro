@@ -1,0 +1,28 @@
+---
+interface Props {
+  icon: string;
+  text: string;
+  link: string;
+}
+
+const { icon, text, link } = Astro.props;
+---
+
+<a
+  href={link}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group inline-flex items-center gap-3 py-2 text-sm font-medium text-neutral-300 transition-colors duration-200 hover:text-white"
+>
+  <img
+    src={icon}
+    alt=""
+    class="h-5 w-5 shrink-0 object-contain transition-transform duration-200 group-hover:scale-105"
+  />
+
+  <span
+    class="underline decoration-1 underline-offset-4 decoration-zinc-600 transition-colors duration-200 group-hover:decoration-zinc-300"
+  >
+    {text}
+  </span>
+</a>
