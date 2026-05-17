@@ -1,0 +1,273 @@
+---
+import "../styles/global.css";
+import Baselayout from "../layouts/Layout.astro";
+
+const projects = [
+  {
+    name: "Enmasec",
+    url: "https://github.com/parthivsaikia/enmasec",
+    description: "Local-first TUI password manager built with Go.",
+    status: "active",
+  },
+];
+
+const learning = [
+  {
+    name: "Kubernetes",
+    url: "https://kubernetes.io/docs/home/",
+    description:
+      "Working through cluster architecture, networking, and writing production-grade manifests.",
+    status: "in progress",
+  },
+  {
+    name: "Zig",
+    url: "https://ziglang.org/documentation/master/",
+    description:
+      "Learning memory management and comptime. Building small tools to get comfortable with the language.",
+    status: "in progress",
+  },
+];
+
+const anime = [
+  {
+    name: "One Piece",
+    url: "https://myanimelist.net/anime/21/One_Piece",
+    status: "watching",
+  },
+  {
+    name: "Fullmetal Alchemist: Brotherhood",
+    url: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood",
+    status: "watching",
+  },
+  {
+    name: "Attack on Titan",
+    url: "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin",
+    status: "watched",
+  },
+  {
+    name: "Death Note",
+    url: "https://myanimelist.net/anime/1535/Death_Note",
+    status: "watched",
+  },
+  {
+    name: "Mob Psycho 100",
+    url: "https://myanimelist.net/anime/32182/Mob_Psycho_100",
+    status: "watched",
+  },
+];
+
+const books = [
+  {
+    name: "Siddhartha",
+    url: "https://www.goodreads.com/book/show/52036.Siddhartha",
+    status: "reading",
+  },
+  {
+    name: "The Alchemist",
+    url: "https://www.goodreads.com/book/show/18144590-the-alchemist",
+    status: "completed",
+  },
+];
+---
+
+<Baselayout>
+  <section class="flex flex-col gap-8 text-zinc-300">
+    <div class="flex flex-col gap-3">
+      <h1 class="text-xl font-medium tracking-tight text-zinc-100">Now</h1>
+      <p class="text-[16px] leading-8">
+        A snapshot of what I'm currently building, watching, and exploring.
+        Updated irregularly.
+      </p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="flex flex-col gap-6" id="now-container">
+      <div class="flex gap-1" role="tablist">
+        {
+          [
+            { id: "projects", label: "Projects" },
+            { id: "learning", label: "Learning" },
+            { id: "anime", label: "Anime" },
+            { id: "movies", label: "Books" },
+          ].map((tab) => (
+            <button
+              role="tab"
+              data-tab={tab.id}
+              class:list={[
+                "tab-btn px-3 py-1 text-sm rounded-sm transition-colors duration-150",
+                tab.id === "projects"
+                  ? "bg-zinc-800 text-zinc-100"
+                  : "text-zinc-500 hover:text-zinc-300",
+              ]}
+            >
+              {tab.label}
+            </button>
+          ))
+        }
+      </div>
+
+      <!-- Projects Panel -->
+      <div id="panel-projects" class="tab-panel flex flex-col">
+        <h2
+          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+        >
+          Projects
+        </h2>
+        <div class="border-t border-zinc-800">
+          {
+            projects.map((item) => (
+              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                <div class="flex flex-col gap-1">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                  >
+                    {item.name}
+                    <span class="text-xs opacity-50">↗</span>
+                  </a>
+                  <p class="text-sm text-zinc-500 leading-6">
+                    {item.description}
+                  </p>
+                </div>
+                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                  {item.status}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Learning Panel -->
+      <div id="panel-learning" class="tab-panel hidden flex-col">
+        <h2
+          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+        >
+          Learning
+        </h2>
+        <div class="border-t border-zinc-800">
+          {
+            learning.map((item) => (
+              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                <div class="flex flex-col gap-1">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                  >
+                    {item.name}
+                    <span class="text-xs opacity-50">↗</span>
+                  </a>
+                  <p class="text-sm text-zinc-500 leading-6">
+                    {item.description}
+                  </p>
+                </div>
+                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                  {item.status}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Anime Panel -->
+      <div id="panel-anime" class="tab-panel hidden flex-col">
+        <h2
+          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+        >
+          Anime
+        </h2>
+        <div class="border-t border-zinc-800">
+          {
+            anime.map((item) => (
+              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                <div class="flex flex-col gap-1">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                  >
+                    {item.name}
+                    <span class="text-xs opacity-50">↗</span>
+                  </a>
+                </div>
+                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                  {item.status}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Books Panel -->
+      <div id="panel-movies" class="tab-panel hidden flex-col">
+        <h2
+          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+        >
+          Books
+        </h2>
+        <div class="border-t border-zinc-800">
+          {
+            books.map((item) => (
+              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                <div class="flex flex-col gap-1">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                  >
+                    {item.name}
+                    <span class="text-xs opacity-50">↗</span>
+                  </a>
+                </div>
+                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                  {item.status}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Last updated note -->
+    <p class="text-xs text-zinc-600">Last updated: May 2025</p>
+  </section>
+</Baselayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
+  const panels = document.querySelectorAll<HTMLElement>(".tab-panel");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.tab;
+
+      // Update button styles
+      buttons.forEach((b) => {
+        b.classList.remove("bg-zinc-800", "text-zinc-100");
+        b.classList.add("text-zinc-500");
+      });
+      btn.classList.add("bg-zinc-800", "text-zinc-100");
+      btn.classList.remove("text-zinc-500");
+
+      // Show/hide panels
+      panels.forEach((panel) => {
+        if (panel.id === `panel-${target}`) {
+          panel.classList.remove("hidden");
+          panel.classList.add("flex");
+        } else {
+          panel.classList.add("hidden");
+          panel.classList.remove("flex");
+        }
+      });
+    });
+  });
+</script>

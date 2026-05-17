@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@fontsource/geist-sans": "^5.2.5",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.0",
     "tailwindcss": "^4.3.0",
