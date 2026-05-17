@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/Layout.astro";
+import UsesSection from "../components/Usersection.astro";
+
+export interface UsesEntry {
+  name: string;
+  description?: string;
+  configUrl?: string; // full GitHub URL to the config file or folder
+}
+
+export interface UsesGroup {
+  title: string;
+  items: UsesEntry[];
+}
+
+export const uses: UsesGroup[] = [
+  {
+    title: "Operating System",
+    items: [
+      {
+        name: "Arch Linux",
+      },
+    ],
+  },
+  {
+    title: "Editor",
+    items: [
+      {
+        name: "Neovim",
+        configUrl: "https://github.com/parthivsaikia/config/tree/main/nvim",
+      },
+    ],
+  },
+  {
+    title: "Window Manager",
+    items: [
+      {
+        name: "Niri",
+        configUrl: "https://github.com/parthivsaikia/config/tree/main/niri",
+      },
+    ],
+  },
+  {
+    title: "Terminal",
+    items: [
+      {
+        name: "Ghostty",
+        configUrl: "https://github.com/parthivsaikia/config/tree/main/ghostty",
+      },
+      {
+        name: "tmux",
+        configUrl:
+          "https://github.com/parthivsaikia/config/blob/main/.tmux.conf",
+      },
+    ],
+  },
+  {
+    title: "Shell",
+    items: [
+      {
+        name: "zsh",
+      },
+      {
+        name: "Starship",
+        configUrl: "https://github.com/parthivsaikia/config/tree/main/starship",
+      },
+    ],
+  },
+  {
+    title: "CLI Tools",
+    items: [
+      {
+        name: "yazi",
+      },
+      {
+        name: "eza",
+      },
+    ],
+  },
+  {
+    title: "Browser",
+    items: [{ name: "Zen Browser" }],
+  },
+  {
+    title: "Font",
+    items: [
+      {
+        name: "Iosevka Nerd Font",
+      },
+    ],
+  },
+  {
+    title: "Notes",
+    items: [
+      {
+        name: "Telekasten.nvim",
+        configUrl: "https://github.com/parthivsaikia/config/tree/main/nvim",
+      },
+    ],
+  },
+  {
+    title: "Languages",
+    items: [
+      {
+        name: "Go",
+      },
+      {
+        name: "Zig",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <p class="text-neutral-200 leading-relaxed">
+      These are the things that I almost use everyday.
+    </p>
+  </section>
+
+  {uses.map((group) => <UsesSection title={group.title} items={group.items} />)}
+</BaseLayout>

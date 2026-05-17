@@ -1,0 +1,29 @@
+---
+import UsesItem from "./Usesitem.astro";
+
+export interface UsesEntry {
+  name: string;
+  description?: string;
+  configUrl?: string;
+}
+
+export interface Props {
+  title: string;
+  items: UsesEntry[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="">
+  <h2 class="font-normal uppercase tracking-widest text-zinc-600">
+    {title}
+  </h2>
+  <div class="border-t border-zinc-800">
+    {
+      items.map((item) => (
+        <UsesItem name={item.name} configUrl={item.configUrl} />
+      ))
+    }
+  </div>
+</section>

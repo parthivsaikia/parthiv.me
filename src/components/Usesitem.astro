@@ -1,0 +1,27 @@
+---
+export interface Props {
+  name: string;
+  description?: string;
+  configUrl?: string;
+}
+
+const { name, configUrl } = Astro.props;
+---
+
+<div class="py-3 border-b border-zinc-800 last:border-none">
+  <div class="flex items-baseline gap-3">
+    <span class="text-zinc-200">{name}</span>
+    {
+      configUrl && (
+        <a
+          href={configUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs text-zinc-500 underline underline-offset-[3px] hover:text-zinc-200 transition-colors duration-150"
+        >
+          config ↗
+        </a>
+      )
+    }
+  </div>
+</div>
