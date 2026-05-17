@@ -10,37 +10,41 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
 ---
 
 <Baselayout>
-  <section class="flex flex-col gap-8 text-zinc-300">
-    <div class="flex flex-col gap-3">
-      <h1 class="text-xl font-medium tracking-tight text-zinc-100">Writing</h1>
-      <p class="text-[16px] leading-8">
-        Thoughts on systems, tooling, and the craft of building software.
-      </p>
-    </div>
+  <section class="animate-fade-up flex flex-col gap-8 text-zinc-300">
+    <section class="flex flex-col gap-8 text-zinc-300">
+      <div class="flex flex-col gap-3">
+        <h1 class="text-xl font-medium tracking-tight text-zinc-100">
+          Writing
+        </h1>
+        <p class="text-[16px] leading-8">
+          Thoughts on systems, tooling, and the craft of building software.
+        </p>
+      </div>
 
-    {
-      posts.length === 0 ? (
-        <p class="text-sm text-zinc-600">Nothing here yet.</p>
-      ) : (
-        <div class="border-t border-zinc-800">
-          {posts.map((post: CollectionEntry<"blog">) => (
-            <a
-              href={`/blogs/${post.id}`}
-              class="group flex items-baseline justify-between py-4 border-b border-zinc-800 last:border-none gap-6"
-            >
-              <span class="text-[15px] text-zinc-300 group-hover:text-zinc-100 transition-colors duration-150">
-                {post.data.title}
-              </span>
-              <span class="text-xs text-zinc-600 shrink-0 tabular-nums group-hover:text-zinc-500 transition-colors duration-150">
-                {post.data.date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                })}
-              </span>
-            </a>
-          ))}
-        </div>
-      )
-    }
+      {
+        posts.length === 0 ? (
+          <p class="text-sm text-zinc-600">Nothing here yet.</p>
+        ) : (
+          <div class="border-t border-zinc-800">
+            {posts.map((post: CollectionEntry<"blog">) => (
+              <a
+                href={`/blogs/${post.id}`}
+                class="group flex items-baseline justify-between py-4 border-b border-zinc-800 last:border-none gap-6"
+              >
+                <span class="text-[15px] text-zinc-300 group-hover:text-zinc-100 transition-colors duration-150">
+                  {post.data.title}
+                </span>
+                <span class="text-xs text-zinc-600 shrink-0 tabular-nums group-hover:text-zinc-500 transition-colors duration-150">
+                  {post.data.date.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </section>
   </section>
 </Baselayout>

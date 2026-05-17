@@ -71,174 +71,176 @@ const books = [
 ---
 
 <Baselayout>
-  <section class="flex flex-col gap-8 text-zinc-300">
-    <div class="flex flex-col gap-3">
-      <h1 class="text-xl font-medium tracking-tight text-zinc-100">Now</h1>
-      <p class="text-[16px] leading-8">
-        A snapshot of what I'm currently building, watching, and exploring.
-        Updated irregularly.
-      </p>
-    </div>
-
-    <!-- Tab Bar -->
-    <div class="flex flex-col gap-6" id="now-container">
-      <div class="flex gap-1" role="tablist">
-        {
-          [
-            { id: "projects", label: "Projects" },
-            { id: "learning", label: "Learning" },
-            { id: "anime", label: "Anime" },
-            { id: "movies", label: "Books" },
-          ].map((tab) => (
-            <button
-              role="tab"
-              data-tab={tab.id}
-              class:list={[
-                "tab-btn px-3 py-1 text-sm rounded-sm transition-colors duration-150",
-                tab.id === "projects"
-                  ? "bg-zinc-800 text-zinc-100"
-                  : "text-zinc-500 hover:text-zinc-300",
-              ]}
-            >
-              {tab.label}
-            </button>
-          ))
-        }
+  <section class="animate-fade-up flex flex-col gap-8 text-zinc-300">
+    <section class="flex flex-col gap-8 text-zinc-300">
+      <div class="flex flex-col gap-3">
+        <h1 class="text-xl font-medium tracking-tight text-zinc-100">Now</h1>
+        <p class="text-[16px] leading-8">
+          A snapshot of what I'm currently building, watching, and exploring.
+          Updated irregularly.
+        </p>
       </div>
 
-      <!-- Projects Panel -->
-      <div id="panel-projects" class="tab-panel flex flex-col">
-        <h2
-          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
-        >
-          Projects
-        </h2>
-        <div class="border-t border-zinc-800">
+      <!-- Tab Bar -->
+      <div class="flex flex-col gap-6" id="now-container">
+        <div class="flex gap-1" role="tablist">
           {
-            projects.map((item) => (
-              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
-                <div class="flex flex-col gap-1">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
-                  >
-                    {item.name}
-                    <span class="text-xs opacity-50">↗</span>
-                  </a>
-                  <p class="text-sm text-zinc-500 leading-6">
-                    {item.description}
-                  </p>
-                </div>
-                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
-                  {item.status}
-                </span>
-              </div>
+            [
+              { id: "projects", label: "Projects" },
+              { id: "learning", label: "Learning" },
+              { id: "anime", label: "Anime" },
+              { id: "movies", label: "Books" },
+            ].map((tab) => (
+              <button
+                role="tab"
+                data-tab={tab.id}
+                class:list={[
+                  "tab-btn px-3 py-1 text-sm rounded-sm transition-colors duration-150",
+                  tab.id === "projects"
+                    ? "bg-zinc-800 text-zinc-100"
+                    : "text-zinc-500 hover:text-zinc-300",
+                ]}
+              >
+                {tab.label}
+              </button>
             ))
           }
         </div>
-      </div>
 
-      <!-- Learning Panel -->
-      <div id="panel-learning" class="tab-panel hidden flex-col">
-        <h2
-          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
-        >
-          Learning
-        </h2>
-        <div class="border-t border-zinc-800">
-          {
-            learning.map((item) => (
-              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
-                <div class="flex flex-col gap-1">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
-                  >
-                    {item.name}
-                    <span class="text-xs opacity-50">↗</span>
-                  </a>
-                  <p class="text-sm text-zinc-500 leading-6">
-                    {item.description}
-                  </p>
+        <!-- Projects Panel -->
+        <div id="panel-projects" class="tab-panel flex flex-col">
+          <h2
+            class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+          >
+            Projects
+          </h2>
+          <div class="border-t border-zinc-800">
+            {
+              projects.map((item) => (
+                <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                    >
+                      {item.name}
+                      <span class="text-xs opacity-50">↗</span>
+                    </a>
+                    <p class="text-sm text-zinc-500 leading-6">
+                      {item.description}
+                    </p>
+                  </div>
+                  <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                    {item.status}
+                  </span>
                 </div>
-                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
-                  {item.status}
-                </span>
-              </div>
-            ))
-          }
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Learning Panel -->
+        <div id="panel-learning" class="tab-panel hidden flex-col">
+          <h2
+            class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+          >
+            Learning
+          </h2>
+          <div class="border-t border-zinc-800">
+            {
+              learning.map((item) => (
+                <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                    >
+                      {item.name}
+                      <span class="text-xs opacity-50">↗</span>
+                    </a>
+                    <p class="text-sm text-zinc-500 leading-6">
+                      {item.description}
+                    </p>
+                  </div>
+                  <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                    {item.status}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Anime Panel -->
+        <div id="panel-anime" class="tab-panel hidden flex-col">
+          <h2
+            class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+          >
+            Anime
+          </h2>
+          <div class="border-t border-zinc-800">
+            {
+              anime.map((item) => (
+                <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                    >
+                      {item.name}
+                      <span class="text-xs opacity-50">↗</span>
+                    </a>
+                  </div>
+                  <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                    {item.status}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Books Panel -->
+        <div id="panel-movies" class="tab-panel hidden flex-col">
+          <h2
+            class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
+          >
+            Books
+          </h2>
+          <div class="border-t border-zinc-800">
+            {
+              books.map((item) => (
+                <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                    >
+                      {item.name}
+                      <span class="text-xs opacity-50">↗</span>
+                    </a>
+                  </div>
+                  <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
+                    {item.status}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
 
-      <!-- Anime Panel -->
-      <div id="panel-anime" class="tab-panel hidden flex-col">
-        <h2
-          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
-        >
-          Anime
-        </h2>
-        <div class="border-t border-zinc-800">
-          {
-            anime.map((item) => (
-              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
-                <div class="flex flex-col gap-1">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
-                  >
-                    {item.name}
-                    <span class="text-xs opacity-50">↗</span>
-                  </a>
-                </div>
-                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
-                  {item.status}
-                </span>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Books Panel -->
-      <div id="panel-movies" class="tab-panel hidden flex-col">
-        <h2
-          class="font-normal uppercase tracking-widest text-zinc-600 text-xs mb-0"
-        >
-          Books
-        </h2>
-        <div class="border-t border-zinc-800">
-          {
-            books.map((item) => (
-              <div class="flex items-start justify-between py-4 border-b border-zinc-800 gap-4">
-                <div class="flex flex-col gap-1">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
-                  >
-                    {item.name}
-                    <span class="text-xs opacity-50">↗</span>
-                  </a>
-                </div>
-                <span class="text-xs text-zinc-600 uppercase tracking-widest mt-[3px] shrink-0">
-                  {item.status}
-                </span>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-
-    <!-- Last updated note -->
-    <p class="text-xs text-zinc-600">Last updated: May 2025</p>
+      <!-- Last updated note -->
+      <p class="text-xs text-zinc-600">Last updated: May 2025</p>
+    </section>
   </section>
 </Baselayout>
 

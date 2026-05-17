@@ -15,43 +15,49 @@ const projects = [
 ---
 
 <Baselayout>
-  <section class="flex flex-col gap-10 text-zinc-300">
-    <div class="flex flex-col gap-3">
-      <h1 class="text-xl font-medium tracking-tight text-zinc-100">Projects</h1>
-      <p class="text-[16px] leading-8">
-        Things I have built or am currently building.
-      </p>
-    </div>
+  <section class="animate-fade-up flex flex-col gap-8 text-zinc-300">
+    <section class="flex flex-col gap-10 text-zinc-300">
+      <div class="flex flex-col gap-3">
+        <h1 class="text-xl font-medium tracking-tight text-zinc-100">
+          Projects
+        </h1>
+        <p class="text-[16px] leading-8">
+          Things I have built or am currently building.
+        </p>
+      </div>
 
-    <div class="border-t border-zinc-800">
-      {
-        projects.map((project) => (
-          <div class="flex flex-col gap-3 py-5 border-b border-zinc-800 last:border-none">
-            <div class="flex items-baseline justify-between gap-4">
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
-              >
-                {project.name}
-                <span class="text-xs opacity-50">↗</span>
-              </a>
-              <span class="text-xs text-zinc-600 uppercase tracking-widest shrink-0">
-                {project.status}
-              </span>
-            </div>
-            <p class="text-sm text-zinc-500 leading-7">{project.description}</p>
-            <div class="flex gap-2 flex-wrap">
-              {project.stack.map((tag) => (
-                <span class="text-xs text-zinc-600 border border-zinc-800 rounded-sm px-2 py-0.5">
-                  {tag}
+      <div class="border-t border-zinc-800">
+        {
+          projects.map((project) => (
+            <div class="flex flex-col gap-3 py-5 border-b border-zinc-800 last:border-none">
+              <div class="flex items-baseline justify-between gap-4">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[15px] text-zinc-100 underline decoration-1 underline-offset-4 decoration-zinc-600 hover:decoration-zinc-300 transition-colors duration-200"
+                >
+                  {project.name}
+                  <span class="text-xs opacity-50">↗</span>
+                </a>
+                <span class="text-xs text-zinc-600 uppercase tracking-widest shrink-0">
+                  {project.status}
                 </span>
-              ))}
+              </div>
+              <p class="text-sm text-zinc-500 leading-7">
+                {project.description}
+              </p>
+              <div class="flex gap-2 flex-wrap">
+                {project.stack.map((tag) => (
+                  <span class="text-xs text-zinc-600 border border-zinc-800 rounded-sm px-2 py-0.5">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))
-      }
-    </div>
+          ))
+        }
+      </div>
+    </section>
   </section>
 </Baselayout>

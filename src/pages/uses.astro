@@ -114,18 +114,20 @@ export const uses: UsesGroup[] = [
 ---
 
 <BaseLayout>
-  <section class="flex flex-col gap-8 text-zinc-300">
-    <div class="flex flex-col gap-3">
-      <h1 class="text-xl font-medium tracking-tight text-zinc-100">Uses</h1>
-      <p class="text-[16px] leading-8">Things I use almost every day.</p>
-    </div>
+  <section class="animate-fade-up flex flex-col gap-8 text-zinc-300">
+    <section class="flex flex-col gap-8 text-zinc-300">
+      <div class="flex flex-col gap-3">
+        <h1 class="text-xl font-medium tracking-tight text-zinc-100">Uses</h1>
+        <p class="text-[16px] leading-8">Things I use almost every day.</p>
+      </div>
 
-    <div class="flex flex-col gap-8">
-      {
-        uses.map((group) => (
-          <UsesSection title={group.title} items={group.items} />
-        ))
-      }
-    </div>
+      <div class="flex flex-col gap-8">
+        {
+          uses.map((group) => (
+            <UsesSection title={group.title} items={group.items} />
+          ))
+        }
+      </div>
+    </section>
   </section>
 </BaseLayout>
