@@ -1,19 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- White outline -->
-  <path
-    d="M20 54V10h16.5c8.3 0 15 6.7 15 15s-6.7 15-15 15H28"
+  <!-- symmetric container -->
+  <rect
+    x="6"
+    y="6"
+    width="52"
+    height="52"
+    rx="16"
+    fill="#1a1a1a"
     stroke="#ffffff"
-    stroke-width="11"
+    stroke-width="2.2"
+  />
+
+  <!-- symmetric geometric P -->
+  <path
+    d="M24 48V16H35
+       C41.5 16 46 20.2 46 26
+       C46 31.8 41.5 36 35 36H24"
+    stroke="#ffffff"
+    stroke-width="5"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
 
-  <!-- Main dark stroke -->
+  <!-- centered inner detail -->
   <path
-    d="M20 54V10h16.5c8.3 0 15 6.7 15 15s-6.7 15-15 15H28"
+    d="M30 26H36"
     stroke="#1a1a1a"
-    stroke-width="7"
+    stroke-width="2"
     stroke-linecap="round"
-    stroke-linejoin="round"
   />
 </svg>
