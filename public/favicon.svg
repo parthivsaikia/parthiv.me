@@ -1,28 +1,19 @@
-<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="256" height="256" rx="48" fill="white"/>
-
-  <!-- Main P shape -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- White outline -->
   <path
-    d="M72 56
-       C72 43 83 32 96 32
-       H150
-       C191 32 224 65 224 106
-       C224 147 191 180 150 180
-       H120
-       V208
-       C120 221 109 232 96 232
-       C83 232 72 221 72 208
-       V56Z"
-    fill="black"
+    d="M20 54V10h16.5c8.3 0 15 6.7 15 15s-6.7 15-15 15H28"
+    stroke="#ffffff"
+    stroke-width="11"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
 
-  <!-- Inner sparkle cutout -->
+  <!-- Main dark stroke -->
   <path
-    d="M128 72
-       C134 88 146 98 164 104
-       C146 110 134 120 128 136
-       C122 120 110 110 92 104
-       C110 98 122 88 128 72Z"
-    fill="white"
+    d="M20 54V10h16.5c8.3 0 15 6.7 15 15s-6.7 15-15 15H28"
+    stroke="#1a1a1a"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
 </svg>
